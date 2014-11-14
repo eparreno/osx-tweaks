@@ -32,10 +32,6 @@ setting "Check for software updates daily, not just once per week? ",
   yes:  "defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1",
   no:   "defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 7"
 
-setting "Disable the sudden motion sensor? (it's not useful for SSDs/current MacBooks) ",
-  yes:  "sudo pmset -a sms 0",
-  no:   "sudo pmset -a sms 1"
-
 setting "Disable auto-correct? ",
   yes:  "defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled FALSE",
   no:   "defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled TRUE"
