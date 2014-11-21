@@ -25,20 +25,20 @@ system 'sudo -v'
 system 'while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &'
 
 setting "Save to disk, rather than iCloud, by default? ",
-  yes:  "defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud FALSE",
-  no:   "defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud TRUE"
+  yes:  "defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false",
+  no:   "defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool true"
 
 setting "Check for software updates daily, not just once per week? ",
   yes:  "defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1",
   no:   "defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 7"
 
 setting "Disable auto-correct? ",
-  yes:  "defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled FALSE",
-  no:   "defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled TRUE"
+  yes:  "defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false",
+  no:   "defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool true"
 
 setting "Require password immediately after sleep or screen saver begins? ",
-  yes:  "defaults write com.apple.screensaver askForPassword TRUE",
-  no:   "defaults write com.apple.screensaver askForPasswordDelay FALSE"
+  yes:  "defaults write com.apple.screensaver askForPassword -bool true",
+  no:   "defaults write com.apple.screensaver askForPasswordDelay -bool false"
 
 setting "Enable subpixel font rendering on non-Apple LCDs? ",
   yes:  "defaults write NSGlobalDomain AppleFontSmoothing -int 2",
@@ -49,8 +49,8 @@ setting "Increase the window resize speed for Cocoa applications? ",
   no:   "defaults delete NSGlobalDomain NSWindowResizeTime"
 
 setting "Enable tap to click (Trackpad)? ",
-  yes:  "defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking TRUE",
-  no:   "defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking FALSE"
+  yes:  "defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true",
+  no:   "defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool false"
 
 ### Menu Bar ###
 setting "Menu bar: Disable Spotlight? ",
@@ -58,8 +58,8 @@ setting "Menu bar: Disable Spotlight? ",
   no:   "sudo chmod 755 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search"
 
 setting "Menu bar: Disable transparency? ",
-  yes:  "defaults write NSGlobalDomain AppleEnableMenuBarTransparency FALSE",
-  no:   "defaults write NSGlobalDomain AppleEnableMenuBarTransparency TRUE"
+  yes:  "defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool true",
+  no:   "defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false"
 
 ### Time Machine ###
 setting "Time Machine: Disable local snapshots ",
@@ -72,36 +72,36 @@ setting "Finder: Show the ~/Library folder ",
   no:   "chflags hidden ~/Library"
 
 setting "Finder: Show icons for hard drives, servers, and removable media on the desktop? ",
-  yes:  "defaults write com.apple.finder ShowExternalHardDrivesOnDesktop TRUE",
-  no:   "defaults write com.apple.finder ShowExternalHardDrivesOnDesktop TRUE"
+  yes:  "defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false",
+  no:   "defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true"
 
 setting "Finder: Show hidden files by default? ",
-  yes:  "defaults write com.apple.Finder AppleShowAllFiles TRUE",
-  no:   "defaults write com.apple.Finder AppleShowAllFiles FALSE"
+  yes:  "defaults write com.apple.Finder AppleShowAllFiles -bool true",
+  no:   "defaults write com.apple.Finder AppleShowAllFiles -bool false"
 
 setting "Finder: Show all filename extensions by default? ",
-  yes:  "defaults write NSGlobalDomain AppleShowAllExtensions TRUE",
-  no:   "defaults write NSGlobalDomain AppleShowAllExtensions FALSE"
+  yes:  "defaults write NSGlobalDomain AppleShowAllExtensions -bool true",
+  no:   "defaults write NSGlobalDomain AppleShowAllExtensions -bool false"
 
 setting "Finder: Show status bar by default? ",
-  yes:  "defaults write com.apple.finder ShowStatusBar TRUE",
-  no:   "defaults write com.apple.finder ShowStatusBar FALSE"
+  yes:  "defaults write com.apple.finder ShowStatusBar -bool true",
+  no:   "defaults write com.apple.finder ShowStatusBar -bool false"
 
 setting "Finder: Display full POSIX path as window title? ",
-  yes:  "defaults write com.apple.finder _FXShowPosixPathInTitle TRUE",
-  no:   "defaults write com.apple.finder _FXShowPosixPathInTitle FALSE"
+  yes:  "defaults write com.apple.finder _FXShowPosixPathInTitle -bool true",
+  no:   "defaults write com.apple.finder _FXShowPosixPathInTitle -bool false"
 
 setting "Finder: Disable the warning when changing a file extension? ",
-  yes:  "defaults write com.apple.finder FXEnableExtensionChangeWarning FALSE",
-  no:   "defaults write com.apple.finder FXEnableExtensionChangeWarning TRUE"
+  yes:  "defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true",
+  no:   "defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false"
 
 setting "Finder: Use column view in all windows by default? ",
   yes:  "defaults write com.apple.finder FXPreferredViewStyle Clmv",
   no:   "defaults write com.apple.finder FXPreferredViewStyle icnv"
 
 setting "Finder: Avoid creation of .DS_Store files on network volumes? ",
-  yes:  "defaults write com.apple.desktopservices DSDontWriteNetworkStores TRUE",
-  no:   "defaults write com.apple.desktopservices DSDontWriteNetworkStores FALSE"
+  yes:  "defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true",
+  no:   "defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool false"
 
 ### Mision Control ###
 setting "Mission Control: Speed up animations? ",
@@ -114,8 +114,8 @@ setting "Mission Control: Group windows by application? ",
 
 ### Dock ###
 setting "Dock: Enable auto-hide? ",
-  yes:  "defaults write com.apple.dock autohide TRUE",
-  no:   "defaults write com.apple.dock autohide FALSE"
+  yes:  "defaults write com.apple.dock autohide -bool true",
+  no:   "defaults write com.apple.dock autohide -bool false"
 
 setting "Dock: Remove the auto-hiding delay? ",
   yes:  "defaults write com.apple.dock autohide-delay -float 0 &&
@@ -125,21 +125,21 @@ setting "Dock: Remove the auto-hiding delay? ",
 
 ### Safari ###
 setting "Safari: Search default to Contains instead of Starts With? ",
-  yes:  "defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly FALSE",
-  no:   "defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly TRUE"
+  yes:  "defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false",
+  no:   "defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool true"
 
 setting "Safari: Allow hitting the Backspace key to go to the previous page in history? ",
   yes:  "defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled TRUE",
   no:   "defaults delete com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled"
 
 setting "Safari: Show full website address? ",
-  yes:  "defaults write com.apple.Safari ShowFullURLInSmartSearchField TRUE",
-  no:   "defaults write com.apple.Safari ShowFullURLInSmartSearchField FALSE"
+  yes:  "defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true",
+  no:   "defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool false"
 
 ### Mail.app ###
 setting "Mail.app: Copy email addresses as 'foo@example.com' instead of 'Foo Bar <foo@example.com>'? ",
-  yes:  "defaults write com.apple.mail AddressesIncludeNameOnPasteboard FALSE",
-  no:   "defaults write com.apple.mail AddressesIncludeNameOnPasteboard TRUE"
+  yes:  "defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool true",
+  no:   "defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false"
 
 ### House Cleaning ###
 setting "Clear Out Font Caches? ",
