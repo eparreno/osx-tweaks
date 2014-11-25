@@ -24,6 +24,11 @@ return if gets.chomp.downcase != 'y'
 system 'sudo -v'
 system 'while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &'
 
+# https://medium.com/@mariociabarra/wifried-ios-8-wifi-performance-issues-3029a164ce94
+setting "Turn of AWDL (fixes WiFi problems in Yosemite disabling Airdrop)? ",
+  yes: "sudo ifconfig awdl0 down",
+  no:  "sudo ifconfig awdl0 up"
+
 setting "Save to disk, rather than iCloud, by default? ",
   yes:  "defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false",
   no:   "defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool true"
